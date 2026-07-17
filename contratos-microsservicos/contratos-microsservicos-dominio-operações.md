@@ -12,7 +12,7 @@ Os microsserviços do domínio de operações da plataforma expõe um endpoint R
 |--------|----------|-----------------------------------|
 | POST   | `/` | Realiza uma operação de compra/venda de ativo |
 
-### Estrutura da Resposta
+### Estrutura da Requisição da Operação
 ```json
 {
   "tipo": "COMPRA",
@@ -23,15 +23,52 @@ Os microsserviços do domínio de operações da plataforma expõe um endpoint R
   "preco_unitario": 38.75
 }
 ```
+### Estrutura da Resposta da Operação de Sucesso
+```json
+{
+  "id": 1,
+  "tipo": "COMPRA",
+  "codigo_ativo": "ITAU3",
+  "codigo_corretora": 2,
+  "codigo_investidor": 1,
+  "quantidade": 10,
+  "preco_unitario": 38.75,
+  "preco_total": 387.50,
+  "data_hora_criacao": "2026-07-17T10:30:00:00",
+  "status": "Sucesso"
+}
+```
 
-| Campo | Tipo | Descrição                                          |
-|--------|------|----------------------------------------------------|
-| tipo | string | Tipo da operação (Compra/Venda)                    |
-| codigo_ativo | string | Código do ativo                                    |
-| codigo_corretora | integer | Código da corretora                                |
-| codigo_investidor | integer | Código do investidor                                 |
-| quantidade | integer | Quantidade de ações negociadas                       |
-| preco_unitario | decimal | Preço unitário da operação                         |
+### Estrutura da Resposta da Operação de Falha
+```json
+{
+  "id": 1,
+  "tipo": "COMPRA",
+  "codigo_ativo": "ITAU3",
+  "codigo_corretora": 2,
+  "codigo_investidor": 1,
+  "quantidade": 10,
+  "preco_unitario": 38.75,
+  "preco_total": 387.50,
+  "data_hora_criacao": "2026-07-17T10:30:00:00",
+  "status": "Falha",
+  "motivo_falha": "Ativo não apto para negociação"
+}
+```
+
+| Campo | Tipo | Descrição                                                 |
+|--------|------|-----------------------------------------------------------|
+| tipo | string | Tipo da operação (Compra/Venda)                           |
+| codigo_ativo | string | Código do ativo                                           |
+| codigo_corretora | integer | Código da corretora                                       |
+| codigo_investidor | integer | Código do investidor                                      |
+| quantidade | integer | Quantidade de ações negociadas                            |
+| preco_unitario | decimal | Preço unitário da operação                                |
+| preco_total | decimal | Preço total da operação                                   |
+| data_hora_criacao | datetime | Data e hora de criação do registro da operação            |
+| data_hora_atualizacao | datetime | Data e hora da última atualização do registro da operação |
+| status | string | Status da operação (Sucesso / Falha)                      |
+| motivo_falha | string | Motivo da falha na operação                               |
 
 ## 2. Comunicação Assíncrona via Fila Operação Registrada
 
@@ -39,11 +76,11 @@ Os microsserviços do domínio de operações da plataforma expõe um endpoint R
 
 ```json
 {
-  "codigo_ativo":"ITAU3",
+  "codigo_ativo": "ITAU3",
   "quantidade": 10,
-  "preco_unitario":38.75,
-  "indexador":0.05,
-  "tipo_operacao":"COMPRA"
+  "preco_unitario": 38.75,
+  "indexador": 0.05,
+  "tipo_operacao": "Compra"
 }
 ```
 
@@ -53,4 +90,4 @@ Os microsserviços do domínio de operações da plataforma expõe um endpoint R
 | quantidade | integer | Quantidade de ações negociadas                   |
 | preco_unitario | decimal | Preço unitário da operação                       |
 | indexador | decimal | Indexador de valorização/desvalorização do ativo |
-| tipo_operacao | string | Tipo da operação (COMPRA / VENDA)                |
+| tipo_operacao | string | Tipo da operação (Compra / Venda)                    |

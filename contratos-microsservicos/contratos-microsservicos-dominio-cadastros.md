@@ -21,7 +21,7 @@ Responsável pelo gerenciamento dos ativos financeiros disponíveis para negocia
 | PUT | `/{codigo}` | Atualiza um ativo existente       |
 | DELETE | `/{codigo}` | Inativa um ativo                  |
 
-### Estrutura do Ativo
+### Estrutura de Requisição do Ativo
 
 ```json
 {
@@ -32,7 +32,22 @@ Responsável pelo gerenciamento dos ativos financeiros disponíveis para negocia
   "aptaNegociacao": true,
   "quantidade": 1000
 }
-````
+```
+### Estrutura de Resposta do Ativo
+
+```json
+{
+  "codigo": "PETR4",
+  "nome": "Petroleo Brasileiro SA Petrobras",
+  "valorBase": 35.50,
+  "indexador": 0.13,
+  "aptaNegociacao": true,
+  "quantidade": 1000,
+  "dataCriacao": "2026-07-09T18:32:27.624635",
+  "dataAtualizacao": "2026-07-17T10:18:30.979051"
+}
+```
+
 
 | Campo  | Tipo        | Descrição                                        |
 |--------|-------------|--------------------------------------------------|
@@ -42,6 +57,8 @@ Responsável pelo gerenciamento dos ativos financeiros disponíveis para negocia
 | indexador | decimal     | Percentual de valorização/desvalorização do ativo |
 | aptaNegociacao | boolean | Indica se o ativo está disponível para negociação |
 | quantidade | integer    | Quantidade disponível do ativo                   |
+| dataCriacao | datetime    | Data e hora de criação do registro do ativo      |
+| dataAtualizacao | datetime    | Data e hora da última atualização do registro do ativo |
 
 
 ## 2. API de Corretoras
@@ -58,7 +75,7 @@ Responsável pelo gerenciamento das corretoras participantes da plataforma.
 | PUT | `/{codigo}` | Atualiza uma corretora existente   |
 | DELETE | `/{codigo}` | Inativa uma corretora            |
 
-### Estrutura da Corretora
+### Estrutura de Requisição da Corretora
 
 ```json
 {
@@ -69,12 +86,29 @@ Responsável pelo gerenciamento das corretoras participantes da plataforma.
 }
 ```
 
+### Estrutura de Resposta da Corretora
+
+```json
+{
+  "codigo": 2,
+  "nome": "XP Investimentos",
+  "razaoSocial": "XP Investimentos Corretora de Cambio, Titulos e Valores Mobiliarios S.A.",
+  "cnpj": "12345678000191",
+  "aptaNegociacao": true,
+  "dataHoraCriacao": "2026-07-16T20:30:42.902271",
+  "dataHoraAtualizacao": "2026-07-16T20:30:42.902271"
+}
+```
+
 | Campo | Tipo | Descrição |
 |-------|------|-----------|
+| codigo | integer | Código único da corretora |
 | nome | string | Nome comercial da corretora |
 | razaoSocial | string | Razão social completa |
 | cnpj | string | CNPJ da corretora |
 | aptaNegociacao | boolean | Indica se a corretora está apta para negociação |
+| dataHoraCriacao | datetime | Data e hora de criação do registro da corretora |
+| dataHoraAtualizacao | datetime | Data e hora da última atualização do registro da corretora
 
 
 ## 3. API de Investidores
@@ -90,7 +124,7 @@ Responsável pelo gerenciamento das corretoras participantes da plataforma.
 | PUT | `/{codigo}` | Atualiza um investidor existente |
 | DELETE | `/{codigo}` | Remove um investidor |
 
-### Estrutura do Investidor
+### Estrutura de Requisição do Investidor
 
 ```json
 {
@@ -100,9 +134,23 @@ Responsável pelo gerenciamento das corretoras participantes da plataforma.
 }
 ```
 
+### Estrutura de Resposta do Investidor
+
+```json
+{
+  "codigo": 1,
+  "nome": "Vitoria Moreira Bentes",
+  "cpf": "45528076067",
+  "aptaNegociacao": true,
+  "dataHoraCriacao": "2026-07-16T20:30:42.902271",
+  "dataHoraAtualizacao": "2026-07-16T20:30:42.902271"
+}
+```
+
 | Campo | Tipo | Descrição |
 |-------|------|-----------|
 | nome | string | Nome do investidor |
 | cpf | string | CPF do investidor |
 | aptaNegociacao | boolean | Indica se o investidor está apto para negociar |
-
+| dataHoraCriacao | datetime | Data e hora de criação do registro do investidor |
+| dataHoraAtualizacao | datetime | Data e hora da última atualização do registro do investidor |

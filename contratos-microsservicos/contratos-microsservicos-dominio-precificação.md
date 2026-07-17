@@ -16,19 +16,19 @@ Os microsserviços do domínio de precificação da plataforma expõem um endpoi
 ```json
 {
   "id": 1,
-  "codigoAtivo": "PETR4",
+  "codigo_ativo": "PETR4",
   "preco": 35.50,
-  "dataHoraAtualizacao": "2026-07-17T10:30:00",
+  "data_hora_atualizacao": "2026-07-17T10:30:00",
   "atualizado": true
 }
 ```
-| Campo | Tipo | Descrição                                          |
-|--------|------|----------------------------------------------------|
-| id | integer | Identificador único do registro de precificação    |
-| codigoAtivo | string | Código do ativo                                    |
-| preco | decimal | Preço atual do ativo                               |
+| Campo               | Tipo | Descrição                                          |
+|---------------------|------|----------------------------------------------------|
+| id                  | integer | Identificador único do registro de precificação    |
+| codigo_ativo        | string | Código do ativo                                    |
+| preco               | decimal | Preço atual do ativo                               |
 | dataHoraAtualizacao | datetime | Data e hora da última atualização                  |
-| atualizado | boolean | Indica se esse é o preço atualizado |
+| atualizado          | boolean | Indica se esse é o preço atualizado |
 
 ## 2. Comunicação Assíncrona via Fila Ativo Alterado
 
@@ -40,7 +40,7 @@ Os microsserviços do domínio de precificação da plataforma expõem um endpoi
 {
   "codigo": "ITAU3",
   "nome": "ITAÚ S.A.",
-  "valor_Base": 100.00,
+  "valor_base": 100.00,
   "apta_negociacao": true
 }
 ```
