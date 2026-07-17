@@ -6,10 +6,9 @@
 
 ## Contexto
 
-A plataforma de negociação de ativos é composta por múltiplos microsserviços desenvolvidos em diferentes tecnologias. Para atender a essa diversidade, foi projetada uma esteira de CI/CD única que suporta tanto aplicações **Java com Spring Boot** quanto **.NET 8**, garantindo que cada equipe possa escolher a tecnologia mais adequada para seu domínio sem perder a padronização operacional.
+A plataforma de negociação de ativos é composta por múltiplos microsserviços desenvolvidos em diferentes tecnologias. Para atender a essa diversidade, foi projetada uma esteira de CI/CD única que suporta tanto aplicações **Java com Spring Boot** quanto **.NET 8**, garantindo que cada integrante da equipe possa escolher a tecnologia mais adequada para seu domínio sem perder a padronização operacional.
 
 Independentemente da linguagem, todos os microsserviços compartilham os mesmos padrões:
-
 - **Versionamento semântico automático** no formato `0.<release>.<commits>`
 - **Containerização com Docker** para garantir portabilidade entre ambientes
 - **Deploy manual** com rollback facilitado
@@ -38,38 +37,22 @@ Embora os workflows sigam a mesma estrutura lógica, o `deploy.yml` do .NET poss
 
 ## Fluxo de CI/CD
 
-### Build
+- **Build**: a etapa de build ocorre dentro do workflow de deploy e transforma o código fonte em um artefato executável. O processo varia conforme a tecnologia, mas o resultado é sempre um único artefato pronto para ser containerizado.
 
-A etapa de build ocorre dentro do workflow de deploy e transforma o código fonte em um artefato executável. O processo varia conforme a tecnologia, mas o resultado é sempre um único artefato pronto para ser containerizado.
+- **Release**: o workflow de release é acionado manualmente pela equipe e automatiza a criação de versões, seguindo um padrão semântico simples e autoincrementável. A versão gerada é composta por três partes:
+  - **0**: Fixo, indicando versões iniciais do projeto
+  - **Release**: Número incrementado automaticamente com base nas tags existentes
+  - **Commits**: Total de commits do repositório
 
-### Release
+- **Deploy**: o deploy é o processo de publicação de uma versão específica na EC2. Diferente da release, o deploy é acionado manualmente e requer que o usuário informe a versão desejada, garantindo controle total sobre o que está em produção. O workflow realiza as seguintes etapas:
+  1. Checkout do código da tag informada
+  2. Build da aplicação (Gradle para Java, dotnet para .NET)
+  3. Build da imagem Docker
+  4. Exportação da imagem como `image.tar`
+  5. Transferência dos arquivos para a EC2 via SCP
+  6. Deploy remoto: carregamento da imagem, criação do `.env` com secrets, recriação do container e reinicialização do Nginx
 
-O workflow de release é acionado manualmente pela equipe e automatiza a criação de versões, seguindo um padrão semântico simples e autoincrementável. A versão gerada é composta por três partes:
-
-- **0**: Fixo, indicando versões iniciais do projeto
-- **Release**: Número incrementado automaticamente com base nas tags existentes
-- **Commits**: Total de commits do repositório
-
-Esse formato garante que cada release seja única e rastreável, sem necessidade de intervenção manual para definir o número da versão.
-
-### Deploy
-
-O deploy é o processo de publicação de uma versão específica na EC2. Diferente da release, o deploy é acionado manualmente e requer que o usuário informe a versão desejada, garantindo controle total sobre o que está em produção.
-
-O workflow realiza as seguintes etapas:
-
-1. Checkout do código da tag informada
-2. Build da aplicação (Gradle para Java, dotnet para .NET)
-3. Build da imagem Docker
-4. Exportação da imagem como `image.tar`
-5. Transferência dos arquivos para a EC2 via SCP
-6. Deploy remoto: carregamento da imagem, criação do `.env` com secrets, recriação do container e reinicialização do Nginx
-
-### Rollback
-
-O rollback utiliza o mesmo fluxo do deploy, bastando informar uma versão anterior. Por exemplo, se a versão `0.4.67` apresentar problemas, executa-se o workflow de deploy informando `0.3.51` para reativar a versão estável.
-
-Esse mecanismo é possível porque todas as versões são imutáveis (cada tag gera uma imagem única) e permanecem disponíveis para deploy a qualquer momento.
+- **Rollback**: o rollback utiliza o mesmo fluxo do deploy, bastando informar uma versão anterior. Por exemplo, se a versão `0.6.7` apresentar problemas, executa-se o workflow de deploy informando `0.5.6` para reativar a versão estável. Esse mecanismo é possível porque todas as versões são imutáveis (cada tag gera uma imagem única) e permanecem disponíveis para deploy a qualquer momento.
 
 ---
 
@@ -77,7 +60,7 @@ Esse mecanismo é possível porque todas as versões são imutáveis (cada tag g
 
 As credenciais sensíveis nunca são versionadas no código fonte, sendo armazenadas como **GitHub Secrets** e injetadas dinamicamente durante o deploy através da criação do arquivo `.env` na EC2.
 
-Os secrets obrigatórios para todos os microsserviços são:
+As secrets obrigatórios para todos os microsserviços são:
 
 | Secret | Descrição |
 |--------|-----------|

@@ -1,0 +1,517 @@
+{
+  "info": {
+    "_postman_id": "7b57f2c3-2656-4ae2-9cc0-a4fec8b3ace6",
+    "name": "Plataforma Negociação de Ativos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54178637",
+    "_collection_link": "https://go.postman.co/collection/54178637-7b57f2c3-2656-4ae2-9cc0-a4fec8b3ace6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Cadastro Ativos API",
+      "item": [
+        {
+          "name": "Ativos - Find All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-ativos-api/v1/ativos",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-ativos-api",
+                "v1",
+                "ativos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atvos - Find By Codigo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-ativos-api/v1/ativos/PETR3",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-ativos-api",
+                "v1",
+                "ativos",
+                "PETR3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ativos - Create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"codigo\": \"BBAS3\",\r\n    \"nome\": \"BCO BRASIL S.A.\",\r\n    \"valorBase\": 20.35,\r\n    \"indexador\": 0.37,\r\n    \"aptaNegociacao\": true,\r\n    \"quantidade\": 700\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-ativos-api/v1/ativos",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-ativos-api",
+                "v1",
+                "ativos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ativos - Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"codigo\": \"PETR3\",\r\n    \"nome\": \"Petroleo Brasileiro SA Petrobras\",\r\n    \"valorBase\": 35.50,\r\n    \"indexador\": 0.13,\r\n    \"aptaNegociacao\": false,\r\n    \"quantidade\": 1000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-ativos-api/v1/ativos/PETR3",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-ativos-api",
+                "v1",
+                "ativos",
+                "PETR3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ativos - Delete",
+          "request": {
+            "method": "DELETE",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cadastro Corretora API",
+      "item": [
+        {
+          "name": "Corretora - Find All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-corretora-api/v1/corretoras",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-corretora-api",
+                "v1",
+                "corretoras"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Corretora - Find By Codigo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-corretora-api/v1/corretoras/2",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-corretora-api",
+                "v1",
+                "corretoras",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Corretora - Create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{   \"razaoSocial\": \"XP Investimentos Corretora de Cambio, Titulos e Valores Mobiliarios S.A.\",\r\n    \"cnpj\": \"12345678000191\",\r\n    \"aptaNegociacao\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-corretora-api/v1/corretoras",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-corretora-api",
+                "v1",
+                "corretoras"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Corretora - Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\":\"Itau Corretora\",\r\n    \"razaoSocial\":\"Itau Corretora de Valores S.A.\",\r\n    \"cnpj\":\"12345678000194\",\r\n    \"aptaNegociacao\":true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-corretora-api/v1/corretoras",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-corretora-api",
+                "v1",
+                "corretoras"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Corretora - Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-corretora-api/v1/corretoras",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-corretora-api",
+                "v1",
+                "corretoras"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cadastro Investidor API",
+      "item": [
+        {
+          "name": "Investidor - Find All",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-investidor-api/v1/investidor/",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-investidor-api",
+                "v1",
+                "investidor",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Investidor - Find By Codigo",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-investidor-api/v1/investidor/10",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-investidor-api",
+                "v1",
+                "investidor",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Investidor - Update",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"\",\r\n    \"cpf\": \"\",\r\n    \"apta_negociacao\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-investidor-api/v1/investidor/10",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-investidor-api",
+                "v1",
+                "investidor",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Investidor - Delete",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"\",\r\n    \"cpf\": \"\",\r\n    \"apta_negociacao\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-investidor-api/v1/investidor/10",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-investidor-api",
+                "v1",
+                "investidor",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Investidor - Create",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://34.204.232.188/cadastro-investidor-api/v1/investidor//10",
+              "protocol": "http",
+              "host": [
+                "34",
+                "204",
+                "232",
+                "188"
+              ],
+              "path": [
+                "cadastro-investidor-api",
+                "v1",
+                "investidor",
+                "",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Precificação - Find By Codigo",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://34.204.232.188/preco-atual/v1/precos/PETR4",
+          "protocol": "http",
+          "host": [
+            "34",
+            "204",
+            "232",
+            "188"
+          ],
+          "path": [
+            "preco-atual",
+            "v1",
+            "precos",
+            "PETR4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Operações - Create",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"tipo\": \"Compra\",\r\n    \"codigo_ativo\": \"PETR4\",\r\n    \"codigo_corretora\": \"BTG\",\r\n    \"codigo_investidor\": 1,\r\n    \"quantidade\": 10,\r\n    \"preco_unitario\": 35.50\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://34.204.232.188/operacao-api/v1/",
+          "protocol": "http",
+          "host": [
+            "34",
+            "204",
+            "232",
+            "188"
+          ],
+          "path": [
+            "operacao-api",
+            "v1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
