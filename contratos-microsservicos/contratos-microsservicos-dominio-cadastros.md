@@ -1,20 +1,17 @@
-# Contrato de Microsserviços
-Os microsserviços da plataforma expõem endpoints REST para gerenciamento de ativos, corretoras, investidores, preços e operações. Todas as requisições são roteadas através do Nginx, que atua como proxy reverso e centraliza o acesso às APIs.
+# Contrato de Microsserviços | Domínio de Cadastros
+
+Os microsserviços do domínio de cadastros da plataforma expõem endpoints REST para gerenciamento de ativos, corretoras, investidores. Todas as requisições são roteadas através do Nginx, que atua como proxy reverso e centraliza o acesso às APIs.
 
 **Base URL:** `http://34.204.232.188`
 
 **Postman com todas as requisições de API:** [`Plataforma Negociação de Ativos.postman_collection.json`](Plataforma%20Negociação%20de%20Ativos.postman_collection.json)
 
-## Domínio de Cadastros
-Esse domínio é responsável por gerenciar o ciclo de vida dos ativos financeiros, de investidores e de corretoras na plataforma de negociação de ativos.
-
-## 1. Cadastro de Ativos
+## 1. API de Ativos
 
 Responsável pelo gerenciamento dos ativos financeiros disponíveis para negociação.
 
 **Base Path:** `/cadastro-ativos-api/v1/ativos`
 
-### Endpoints
 
 | Método | Endpoint | Descrição                         |
 |--------|----------|-----------------------------------|
@@ -47,13 +44,11 @@ Responsável pelo gerenciamento dos ativos financeiros disponíveis para negocia
 | quantidade | integer    | Quantidade disponível do ativo                   |
 
 
-## 2. Cadastro de Corretoras
+## 2. API de Corretoras
 
 Responsável pelo gerenciamento das corretoras participantes da plataforma.
 
 **Base Path:** `/cadastro-corretora-api/v1/corretoras`
-
-### Endpoints
 
 | Método | Endpoint | Descrição                          |
 |--------|----------|------------------------------------|
@@ -67,10 +62,10 @@ Responsável pelo gerenciamento das corretoras participantes da plataforma.
 
 ```json
 {
-"nome": "Itau Corretora",
-"razaoSocial": "Itau Corretora de Valores S.A.",
-"cnpj": "60.872.504/0001-23",
-"aptaNegociacao": true
+  "nome": "Itau Corretora",
+  "razaoSocial": "Itau Corretora de Valores S.A.",
+  "cnpj": "60.872.504/0001-23",
+  "aptaNegociacao": true
 }
 ```
 
@@ -82,12 +77,10 @@ Responsável pelo gerenciamento das corretoras participantes da plataforma.
 | aptaNegociacao | boolean | Indica se a corretora está apta para negociação |
 
 
-## 3. Cadastro de Investidores
+## 3. API de Investidores
    Responsável pelo gerenciamento dos investidores que realizam operações na plataforma.
 
 **Base Path:** `/cadastro-investidor-api/v1/investidores`
-
-### Endpoints
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
@@ -101,9 +94,9 @@ Responsável pelo gerenciamento das corretoras participantes da plataforma.
 
 ```json
 {
-"nome": "Vitoria Moreira Bentes",
-"cpf": "45528076067",
-"aptaNegociacao": true
+  "nome": "Vitoria Moreira Bentes",
+  "cpf": "45528076067",
+  "aptaNegociacao": true
 }
 ```
 
