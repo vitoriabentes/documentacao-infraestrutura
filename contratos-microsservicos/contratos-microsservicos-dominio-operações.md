@@ -15,12 +15,12 @@ Os microsserviços do domínio de operações da plataforma expõe um endpoint R
 ### Estrutura da Requisição da Operação
 ```json
 {
-  "tipo": "COMPRA",
-  "codigo_ativo": "ITAU3",
+  "tipo": "Venda",
+  "codigo_ativo": "ITUB4",
   "codigo_corretora": 2,
   "codigo_investidor": 1,
-  "quantidade": 10,
-  "preco_unitario": 38.75
+  "quantidade": 1,
+  "preco_unitario": 25.48
 }
 ```
 ### Estrutura da Resposta da Operação de Sucesso
@@ -42,17 +42,17 @@ Os microsserviços do domínio de operações da plataforma expõe um endpoint R
 ### Estrutura da Resposta da Operação de Falha
 ```json
 {
-  "id": 1,
-  "tipo": "COMPRA",
-  "codigo_ativo": "ITAU3",
+  "id": 22,
+  "tipo": "Venda",
+  "codigo_ativo": "ITUB4",
   "codigo_corretora": 2,
   "codigo_investidor": 1,
-  "quantidade": 10,
-  "preco_unitario": 38.75,
-  "preco_total": 387.50,
-  "data_hora_criacao": "2026-07-17T10:30:00:00",
+  "quantidade": 1,
+  "preco_unitario": 25.480000,
+  "preco_total": 25.480000,
+  "data_hora_criacao": "2026-07-19T20:05:48",
   "status": "Falha",
-  "motivo_falha": "Ativo não apto para negociação"
+  "motivo_falha": "Ativo não encontrado: ITUB4"
 }
 ```
 

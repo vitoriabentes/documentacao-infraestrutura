@@ -10,7 +10,7 @@ Os microsserviços do domínio de cadastros da plataforma expõem endpoints REST
 
 Responsável pelo gerenciamento dos ativos financeiros disponíveis para negociação.
 
-**Base Path:** `/cadastro-ativos-api/v1/ativos`
+**Base Path:** `/cadastro-ativo-api/v1/cadastros/ativo`
 
 
 | Método | Endpoint | Descrição                         |
@@ -65,7 +65,7 @@ Responsável pelo gerenciamento dos ativos financeiros disponíveis para negocia
 
 Responsável pelo gerenciamento das corretoras participantes da plataforma.
 
-**Base Path:** `/cadastro-corretora-api/v1/corretoras`
+**Base Path:** `/cadastro-corretora-api/v1/cadastros/corretora`
 
 | Método | Endpoint | Descrição                          |
 |--------|----------|------------------------------------|
@@ -114,7 +114,7 @@ Responsável pelo gerenciamento das corretoras participantes da plataforma.
 ## 3. API de Investidores
    Responsável pelo gerenciamento dos investidores que realizam operações na plataforma.
 
-**Base Path:** `/cadastro-investidor-api/v1/investidores`
+**Base Path:** `/cadastro-investidor-api/v1/cadastros/investidor`
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|

@@ -15,10 +15,10 @@ Os microsserviços do domínio de precificação da plataforma expõem um endpoi
 ### Estrutura da Resposta
 ```json
 {
-  "id": 1,
-  "codigo_ativo": "PETR4",
-  "preco": 35.50,
-  "data_hora_atualizacao": "2026-07-17T10:30:00",
+  "id": 36,
+  "codigo_ativo": "ITUB4",
+  "preco": 25.484767,
+  "data_hora_atualizacao": "2026-07-18T20:35:10",
   "atualizado": true
 }
 ```
